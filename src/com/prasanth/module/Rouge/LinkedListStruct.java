@@ -1,6 +1,9 @@
 package com.prasanth.module.Rouge;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.LinkedList;
+
 
 public class LinkedListStruct<T> implements Serializable, Cloneable {
 	private static final long serialVersionUID = -8956337161364858688L;
@@ -103,29 +106,22 @@ public class LinkedListStruct<T> implements Serializable, Cloneable {
 		}
 	}
 	
-	public LinkedListStruct<T> insertAlternate(LinkedListStruct<T> data)
-	{
-		Node<T> hold=this.getHead();
-		Node<T> l1=hold;
-		Node<T> l2=data.getHead();
-		Boolean flagSwitch=true;
-		while(l1.getNext()!=null && l2.getNext()!=null)
-		{
-			if(flagSwitch)
-			{
-				
-				hold.setNext(l2.getNext());
-				hold=l1.getNext();
-			}else
-			{
-				hold.setNext(l1.getNext());
-				hold=l2.getNext();
-			}
-			flagSwitch=!flagSwitch;
+	public LinkedListStruct<T> insertAlternate(LinkedListStruct<T> data) {
+		Node<Integer> l1 = (LinkedListStruct<T>.Node<Integer>) this.getHead();
+		Node<Integer> l2 = (LinkedListStruct<T>.Node<Integer>) data.getHead().getNext();
+		Node<Integer> temp1 =null;
+		Node<Integer> temp2 =null;
+		
+		Boolean flagSwitch = true;
+		while (l1.getNext() != null || l2.getNext() != null) {
+			temp1=l1.getNext();
+			l1.next=l2;
+			temp2=l2.next;
+			l2.next=temp1;
+			
 		}
 		return null;
-	}
-	
+	}	
 	
 	
 	
@@ -155,4 +151,56 @@ public class LinkedListStruct<T> implements Serializable, Cloneable {
 		}
 	}
 	
+	 Node doWork(Node head) 
+	  {
+	    Node p,q;
+	    if ((head == null) || (head.next == null)) 
+	      return head;
+	    q = null; p = head;
+	    while (p.next !=null) 
+	    {
+	      q = p;
+	      p = p.next;
+	    }
+	   
+	    return head;
+	  }
+	 
+	 void doWork()
+	 {
+		  Node n1=new Node ();
+	       Node n2=new Node ();
+	       n1.setData(3);
+	       n2.setData(4);
+	       n1.next=n2;
+	       n2.next=n1;
+	       n1.next=null;
+	       n1=null;
+		 System.out.println(n2.getData()+"n1 "+n2.getNext().getData());
+	 }
+	 public static void main(String a[]){
+		 
+                         int i, j;
+                         String key;
+                         String[] letters = {"E","D","C","B","A","B"};
+                         for (j = 1; j < letters.length; j++)
+                         {
+                                         key = letters[j];
+                                         i = j - 1;
+                                         while (i >= 0)
+                                         {
+                                                         if (key.compareTo(letters[i]) > 0)
+                                                         {
+                                                                         break;
+                                                         }
+                                                         letters[i + 1] = letters[i];
+                                                         i--;
+                                         }
+                                         letters[i + 1] = key;
+                         }
+                         for (int t = 0; t < letters.length; t++)
+                         {
+                                         System.out.print((letters[t]) + "");
+                         }
+       }
 }

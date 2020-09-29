@@ -3,6 +3,7 @@ package com.prasanth.datastruct.doublelinkedlist;
 import java.util.LinkedList;
 import java.util.Queue;
 
+
 public class BinaryTree<T> {
 
 	private Node<?> root;
@@ -60,11 +61,38 @@ public class BinaryTree<T> {
 
 		return false;
 	}
+  
+  public  void doWork(Node<Integer> head)
+  {
+  	Node temp = null;
+      Node current = head;
+      
+      while (current != null)
+      {
+          temp = current.left;
+          current.left = current.right;
+          current.right = temp;
+          current = current.left;
+      }
+      if(temp != null )
+         head = temp.left;
 
+  }
 
+  
+  public static  void doWork(Node<?> start)
+  {
+    if(start == null)
+      return;
+    System.out.println("%d  ", start.data); 
+    
+    if(start.next != null )
+      doWork(start.next.next);
+    System.out.println("%d  ", start.data);
+  }
 
-
-	private class Node<T>{
+  
+	 class Node<T>{
 		private T data;
 		private Node<?> left;
 		private Node<?> right;

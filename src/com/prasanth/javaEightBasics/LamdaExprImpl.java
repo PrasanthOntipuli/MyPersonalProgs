@@ -14,6 +14,9 @@ public static void main(String[] args) {
 	data.add(0);
 	
 	data.forEach(i->System.out.println("parent test:: "+i));
+	
+	
+	
 }
 	
 }

@@ -1,5 +1,6 @@
 package com.prasanth.basicProgs;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,25 +9,29 @@ public class BasicLogicProgs {
 	static String strInput = "jim     j    cary is          Awsome actor";
 
 	public static void main(String[] args) {
-		 char[] input={'c','r','f','g','h','j','k','l','z','x','c','b','t','e'};
-		 List<Integer> data = Arrays.asList(2, 6, 3, 2, -8, 4, -11, 5, 7, 9);
-//		 System.out.println(getPossibleIndex(data, 0, 11));
-		 for (int i = 2; i < 100; i++) {
-		 System.out.println("is " + i + " prime ::" + isPrime(i));
-		 }
-		 System.out.println(ispalindrome("Amrutha"));
-		 System.out.println(reverseString("TalkWise"));
-		 System.out.println(reverseANumber(1234));
-		 printFibbnociSeries(123);
-		 System.out.println(reverseWordsinString(strInput));
-		 System.out.println("IS anagram "+isAnagram("CAnT", "cAbt"));
-		 evenOddPos(input, false);
-		 smallestAndLargest(data);
-		System.out.println(firstNonRepetedCharacter("alao.aplpoi"));
-		// alaoaplpoi
+
+		char[] input = { 'c', 'r', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'b', 't', 'e' };
+		List<Integer> data = Arrays.asList(2, 6, 3, 2, -8, 4, -11, 5, 7, 9);
+		// System.out.println();
+		numbers();
+		// int data[]={2, 6, 3, 2, -8, 4, -11, 5, 7, 9};
+		// System.out.println(getPossibleIndex(data, 0, -7));
+
+		// for (int i = 2; i < 100; i++) {
+		// System.out.println("is " + i + " prime ::" + isPrime(i));
+		// }
+		// System.out.println(ispalindrome("Amrutha"));
+		// System.out.println(reverseString("TalkWise"));
+		// System.out.println(reverseANumber(1234));
+		// printFibbnociSeries(123);
+		// System.out.println(reverseWordsinString(strInput));
+		// System.out.println("IS anagram "+isAnagram("CAnT", "cAbt"));
+		// evenOddPos(input, false);
+		// smallestAndLargest(data);
+		System.out.println(firstNonRepetedCharacter("alao@apQ2lpoi"));
+		// // alaoaplpoi
 	}
 
-	
 	private static Character firstNonRepetedCharacter(String data) {
 
 		int leng = data.length();
@@ -168,6 +173,17 @@ public class BasicLogicProgs {
 
 		}
 		return true;
+	}
+
+	// what?
+	public static void numbers() {
+		List<? extends Number> nums = new ArrayList<Number>();
+		// nums.add(3.14);
+		nums.add(null);
+		List<? super Number> superNums = new ArrayList<Number>();
+		superNums.add(3.14);
+		superNums.add(null);
+		System.out.println(superNums);
 	}
 
 }

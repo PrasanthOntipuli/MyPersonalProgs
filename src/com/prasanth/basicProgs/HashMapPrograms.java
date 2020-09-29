@@ -70,52 +70,75 @@ public class HashMapPrograms {
 	}
 
 	public static void main(String[] args) {
-		HashMap<Integer, Integer> myData = new HashMap<>();
-
-		Integer one = 1;
-		Integer two = 2;
-		// String one="One";
-		// String two="Two";
-		String temp = "";
-		myData.put(one, 1);
-		myData.put(two, 2);
-		// two=one+5;
-		System.out.println((myData.get(1) == one) + "two" + (myData.get(two) == two));
-		System.out.println(myData.entrySet().toString());
-
-		HashMap<Student,Integer> listStudents=new HashMap<Student,Integer>();
 		
-		Student s1=new Student(1,"Sarada", 12);
-		Student s2=new Student(2,"syam",57);
-		listStudents.put(s1, 12);
-		listStudents.put(s2, 13);
-//		System.out.println(listStudents.get.hashCode()==s1.hashCode());
+HashMap<String,Integer> data=new HashMap<>();
+		
+		String str1="key1";
+		String str2="key2";
+		String temp="";
+		data.put(str1, 11);
+		data.put(str2, 22);
+	
+		temp=str1;
+		str1=str2;
+		str2=temp;
+		data.put(str1, 11);
+		data.put(str2, 22);
+		
+		System.out.println(data.get(str1));
+        System.out.println(data.get(str2));
+
+//			
 //		
-//		System.out.println(listStudents.get(s2).hashCode()==s2.hashCode());
 //		
-
-		int s11=s1.hashCode();
-		int s22=s2.hashCode();
-		Student s3=s1;
-		s1=s2;
-		s2=s3;
-		System.out.println(s11==s2.hashCode());
-		System.out.println(s22==s1.hashCode());
-
-		
-
-		
-//		System.out.println("Check");
-
-
-		for(Map.Entry<Student, Integer> entry: listStudents.entrySet())
-		{
-			if(entry.getKey().getId()==12)
-			System.out.println(entry.getKey().hashCode()==s1.hashCode());
-			
-			if(entry.getKey().getId()==57)
-			System.out.println(entry.getKey().hashCode()==s2.hashCode());
-		}
+//		
+//		
+//		HashMap<Integer, Integer> myData = new HashMap<>();
+//
+//		Integer one = 1;
+//		Integer two = 2;
+//		// String one="One";
+//		// String two="Two";
+//		String temp = "";
+//		myData.put(one, 1);
+//		myData.put(two, 2);
+//		// two=one+5;
+//		System.out.println((myData.get(1) == one) + "two" + (myData.get(two) == two));
+//		System.out.println(myData.entrySet().toString());
+//
+//		HashMap<Student,Integer> listStudents=new HashMap<Student,Integer>();
+//		
+//		Student s1=new Student(1,"Sarada", 12);
+//		Student s2=new Student(2,"syam",57);
+//		listStudents.put(s1, 12);
+//		listStudents.put(s2, 13);
+////		System.out.println(listStudents.get.hashCode()==s1.hashCode());
+////		
+////		System.out.println(listStudents.get(s2).hashCode()==s2.hashCode());
+////		
+//
+//		int s11=s1.hashCode();
+//		int s22=s2.hashCode();
+//		Student s3=s1;
+//		s1=s2;
+//		s2=s3;
+//		System.out.println(s11==s2.hashCode());
+//		System.out.println(s22==s1.hashCode());
+//
+//		
+//
+//		
+////		System.out.println("Check");
+//
+//
+//		for(Map.Entry<Student, Integer> entry: listStudents.entrySet())
+//		{
+//			if(entry.getKey().getId()==12)
+//			System.out.println(entry.getKey().hashCode()==s1.hashCode());
+//			
+//			if(entry.getKey().getId()==57)
+//			System.out.println(entry.getKey().hashCode()==s2.hashCode());
+//		}
 
 	  }
 }

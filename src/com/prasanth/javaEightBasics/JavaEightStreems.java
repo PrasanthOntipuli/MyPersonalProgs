@@ -1,12 +1,40 @@
 package com.prasanth.javaEightBasics;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class JavaEightStreems {
 
+	
 	public static void main(String[] args) {
+		System.out.println(sortUsingComparator(Employee.getEmployeeDetails()));
+	}
+	
+	//sort by using comparator
+	public static List<Employee>  sortUsingComparator(List<Employee> data)
+	{
+		Stream<Employee> sortEmployees=data.stream().sorted((e1,e2)->e1.getFirstName().compareTo(e2.getFirstName()));
+		return  sortEmployees.collect(Collectors.toList());
+	}
+	
+	// getAllEmployees who has boss
+	public static List<Employee> getTheSubEmployees(List<Employee> employees)
+	{
+		employees.stream().filter();
+		return null;
+	}
+	
+//	data.stream().sorted((emp1, emp2) -> emp1.getFirstName().compareToIgnoreCase(emp2.getFirstName()))
+//	.forEach(System.out::println);
+	
+	
+	public static void numbMethod(String avr) {
 
 		// List<String> data=new ArrayList<>();
 		// data.add("er");
@@ -42,153 +70,13 @@ public class JavaEightStreems {
 		datam.put(1, "orange");
 		System.out.println("int "+datam.size());
 		//datam.
-		List<Employee> listEmployees = new ArrayList<Employee>();
-
-		HashMap<Employee, Integer> data=new HashMap<Employee, Integer>();
-		Employee emp1=new Employee(1,"name1",6762,new Employee(),"cse");
-		Employee emp2=new Employee(1,"name1",6762,new Employee(),"cse");
-//		Employee emp2=new Employee(2,"name2",6762,emp1,"cse");
-		Employee emp3=new Employee(3,"name3",6762,emp2,"cse");
-		Employee emp4=new Employee(4,"name4",6762,emp3,"cse");
+		List<Employee> listEmployees= Employee.getEmployeeDetails();
 
 		
 
-
-		data.put(emp1, 1);
-		data.put(emp2, 2);
-		data.put(emp3, 3);
-		data.put(emp4, 4);
-
-	System.out.println(	data.get(emp1)+"data"+data.get(emp2));
-
-
-		System.out.println(data.size());
-
-
-
-
-		data.put(new Employee(), 1);
-
-
-		listEmployees.add(new Employee());
-		listEmployees.add(new Employee());
-		listEmployees.add(new Employee());
-		listEmployees.add(new Employee());
-		listEmployees.add(new Employee());
-		listEmployees.add(new Employee());
-		listEmployees.add(new Employee());
-		listEmployees.add(new Employee());
-
-		System.out.println(listEmployees.stream().allMatch(e -> e.equals(new Employee())));
-
+		
+		System.out.println(listEmployees.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting())));
 
 
 	}
-}
-
-class Employee {
-	private int id;
-	private String name;
-	private long salary;
-	private Employee boss;
-	private String department;
-
-	public Employee() {
-		super();
-	}
-
-	public Employee(int id, String name, long salary, Employee boss, String department) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.salary = salary;
-		this.boss = boss;
-		this.department = department;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public long getSalary() {
-		return salary;
-	}
-
-	public void setSalary(long salary) {
-		this.salary = salary;
-	}
-
-	public Employee getBoss() {
-		return boss;
-	}
-
-	public void setBoss(Employee boss) {
-		this.boss = boss;
-	}
-
-	public String getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(String department) {
-		this.department = department;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((boss == null) ? 0 : boss.hashCode());
-		result = prime * result + ((department == null) ? 0 : department.hashCode());
-		result = prime * result + id;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + (int) (salary ^ (salary >>> 32));
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Employee other = (Employee) obj;
-		if (boss == null) {
-			if (other.boss != null)
-				return false;
-		} else if (!boss.equals(other.boss))
-			return false;
-		if (department == null) {
-			if (other.department != null)
-				return false;
-		} else if (!department.equals(other.department))
-			return false;
-		if (id != other.id)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (salary != other.salary)
-			return false;
-		return true;
-	}
-
-	
-
 }
