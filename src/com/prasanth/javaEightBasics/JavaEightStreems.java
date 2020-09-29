@@ -13,7 +13,10 @@ public class JavaEightStreems {
 
 	
 	public static void main(String[] args) {
-		System.out.println(sortUsingComparator(Employee.getEmployeeDetails()));
+		
+     //System.out.println(sortUsingComparator(Employee.getEmployeeDetails()));
+		System.out.println(getTheSubEmployees(Employee.getEmployeeDetails()));
+		System.out.println(getIndipendentEmployees(Employee.getEmployeeDetails()));
 	}
 	
 	//sort by using comparator
@@ -23,11 +26,18 @@ public class JavaEightStreems {
 		return  sortEmployees.collect(Collectors.toList());
 	}
 	
-	// getAllEmployees who has boss
+	// getAllEmployees who has a manager
 	public static List<Employee> getTheSubEmployees(List<Employee> employees)
 	{
-		employees.stream().filter();
-		return null;
+		Stream<Employee> data=employees.stream().filter(emp-> emp.getManager()!=null );
+		return data.collect(Collectors.toList());
+	}
+	
+	// getAllEmployees who has a manager
+	public static List<Employee> getIndipendentEmployees(List<Employee> employees)
+	{
+		Stream<Employee> data=employees.stream().filter(emp-> emp.getManager()==null );
+		return data.collect(Collectors.toList());
 	}
 	
 //	data.stream().sorted((emp1, emp2) -> emp1.getFirstName().compareToIgnoreCase(emp2.getFirstName()))

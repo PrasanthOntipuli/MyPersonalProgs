@@ -57,7 +57,7 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee [employeeId=" + employeeId + ", lastName=" + lastName + ", firstName=" + firstName
-				+ ", salary=" + salary + "]\n";
+				+ ", salary=" + salary + "\n \t manager"+manager+"]\n";
 	}
 	
 	public static List<Employee> getEmployeeDetails()
